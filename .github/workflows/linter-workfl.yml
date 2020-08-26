@@ -1,0 +1,6 @@
+name: Lint files
+
+on: [push]
+
+jobs:
+  run: make lint

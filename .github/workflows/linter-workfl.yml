@@ -1,11 +1,13 @@
 name: Lint files
 
-on: [push]
+on:
+  - push
+  - pull_request
 
 jobs:
   lint-job:
     name: Lint Job
     runs-on: ubuntu-latest
-    steps:
-
+    - name: Run linter
+        # Run Linter
       run: make lint

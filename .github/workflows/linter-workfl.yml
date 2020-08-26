@@ -2,5 +2,4 @@ name: Lint files
 
 on: [push]
 
-jobs:
-  run: make lint
+run: make lint

@@ -1,7 +1,7 @@
 install:
 	npm install
 start:
-	node bin/mind-games.js
+	node bin/parity-check.js
 publish:
 	npm publish --dry-run
 lint:

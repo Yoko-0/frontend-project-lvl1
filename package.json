@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "bin": {
-    "mind-games": "bin/mind-games.js"
+    "mind-games": "bin/mind-games.js",
+    "parity-check": "bin/parity-check.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

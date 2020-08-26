@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-console.log('POSHEL NAHUI')
+import {greet} from '../src/cli.js'
+
+greet();

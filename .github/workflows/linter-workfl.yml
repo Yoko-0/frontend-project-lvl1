@@ -2,4 +2,10 @@ name: Lint files
 
 on: [push]
 
-run: make lint
+jobs:
+  lint-job:
+    name: Lint Job
+    runs-on: ubuntu-latest
+    steps:
+
+      run: make lint

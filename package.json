@@ -1,0 +1,23 @@
+{
+  "name": "mind_games",
+  "version": "1.0.0",
+  "description": "HUI",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "mind-games": "bin/mind-games.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zartem01/frontend-project-lvl1.git"
+  },
+  "author": "ZARTEM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zartem01/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/zartem01/frontend-project-lvl1#readme"
+}

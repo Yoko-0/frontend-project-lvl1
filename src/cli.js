@@ -1,7 +1,9 @@
 import readlineSync from 'readline-sync';
 
-export const greet = () => {
-  const name = readlineSync.question('HELLOU POPROSHU POITY NA HUI\nNO SNACHALA SUKA SKAGI SVOE IMYA: ');
-  console.log(`POSHEL NAHUI ${name} SASI HUI!`);
+const greet = () => {
+  const name = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
+  console.log(`Hello, ${name}!`);
   return name;
 };
+
+export default greet;

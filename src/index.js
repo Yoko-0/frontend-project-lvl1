@@ -1,21 +1,19 @@
 import readlineSync from 'readline-sync';
-
-export const randInt = (from, to) => from + Math.floor(Math.random() * (to - from));
+import greet from './cli.js';
 
 const answerValidation = (userAnswer, correctAnswer) => (userAnswer === correctAnswer);
 
-const gameOver = (name, userAnswer, correctAnswer) => {
+const gameLoss = (name, userAnswer, correctAnswer) => {
   console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${name}!`);
-  return false;
 };
 
 const gameWin = (name) => {
   console.log(`Congratulations, ${name}!`);
-  return true;
 };
 
-export const mainLoop = (countOfLoops, name, getQuestion, findRightAnswer) => {
-  for (let i = 0; i < countOfLoops; i += 1) {
+const game = (maxRounds = 3, getQuestion, findRightAnswer) => {
+  const name = greet();
+  for (let i = 0; i < maxRounds; i += 1) {
     const question = getQuestion();
     console.log(`Question: ${question}`);
 
@@ -23,9 +21,13 @@ export const mainLoop = (countOfLoops, name, getQuestion, findRightAnswer) => {
     const correctAnswer = findRightAnswer(question);
 
     if (!answerValidation(userAnswer, correctAnswer)) {
-      return gameOver(name, userAnswer, correctAnswer);
+      gameLoss(name, userAnswer, correctAnswer);
+      return false;
     }
     console.log('Correct!');
   }
-  return gameWin(name);
+  gameWin(name);
+  return true;
 };
+
+export default game;

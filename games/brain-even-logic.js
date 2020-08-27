@@ -1,5 +1,5 @@
-import { mainLoop, randInt } from '../src/index.js';
-import greet from '../src/cli.js';
+import game from '../src/index.js';
+import { randInt } from '../src/utils.js';
 
 const findRightAnswer = (number) => {
   if (number % 2 === 0) {
@@ -8,18 +8,14 @@ const findRightAnswer = (number) => {
   return 'no';
 };
 
-const getQuestion = () => {
+const generateQuestion = () => {
   const minNumber = 1;
   const maxNumber = 100;
   return randInt(minNumber, maxNumber);
 };
 
 const play = () => {
-  const countOfLoops = 3;
-
-  const name = greet();
-
-  const gameResult = mainLoop(countOfLoops, name, getQuestion, findRightAnswer);
+  const gameResult = game(generateQuestion, findRightAnswer);
 
   return gameResult;
 };

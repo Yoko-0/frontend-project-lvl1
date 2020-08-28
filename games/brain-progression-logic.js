@@ -1,35 +1,29 @@
 import game from '../src/index.js';
-import { randInt } from '../src/utils.js';
+import { randInt, generateProgression } from '../src/utils.js';
 
 const findRightAnswer = (question) => {
-  const questionSplit = question.split(' ');
+  const questionSplit = question.split(' ').map((x) => x === '..' ? x : Number(x));
   let step = 0;
-  for (let i = 1; i < questionSplit.length - 1; i += 1) {
+  for (let i = 1; i < questionSplit.length; i += 1) {
     if (questionSplit[i - 1] !== '..' && questionSplit[i] !== '..') {
-      step = Number(questionSplit[i]) - Number(questionSplit[i - 1]);
+      step = questionSplit[i] - questionSplit[i - 1];
+      break;
     }
   }
-  for (let i = 1; i < questionSplit.length - 1; i += 1) {
-    if (questionSplit[0] === '..') return String(Number(questionSplit[1]) - step);
-    if (questionSplit[i] === '..') return String(Number(questionSplit[i - 1]) + step);
-  }
+  if (questionSplit[0] === '..') return String(questionSplit[1] - step);
+  return String(questionSplit[questionSplit.indexOf('..') - 1] + step);
 
-  return null;
 };
 
 const generateQuestion = () => {
-  const progressionLength = 10;
-  const maxStepProgression = 20;
-  const hideNumber = randInt(0, progressionLength);
-  const step = randInt(1, maxStepProgression);
-  const firstNumberOfProgression = randInt(1, maxStepProgression);
-  let progression = '';
-  for (let i = 0; i < progressionLength; i += 1) {
-    if (i === hideNumber) progression += '..';
-    else progression += String(firstNumberOfProgression + i * step);
-    progression += ' ';
-  }
-  return progression;
+  const length = 10;
+  const maxStep = 20;
+  const replacementIndex = randInt(0, length);
+  const step = randInt(1, maxStep);
+  const first = randInt(1, maxStep);
+  let progression = generateProgression(first, step, length);
+  progression[replacementIndex] = '..';
+  return progression.join(' ');
 };
 
 const play = () => {

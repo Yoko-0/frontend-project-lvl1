@@ -1,12 +1,5 @@
 import game from '../src/index.js';
-import { randInt } from '../src/utils.js';
-
-const gcd = (a, b) => {
-  if (!b) {
-    return a;
-  }
-  return gcd(b, a % b);
-};
+import { randInt, gcd } from '../src/utils.js';
 
 const findRightAnswer = (question) => {
   const questionSplit = question.split(' ');

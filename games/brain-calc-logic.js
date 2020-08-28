@@ -33,7 +33,8 @@ const generateQuestion = () => {
 };
 
 const play = () => {
-  const gameResult = game(generateQuestion, findRightAnswer);
+  const rules = 'What is the result of the expression?';
+  const gameResult = game(rules, generateQuestion, findRightAnswer);
 
   return gameResult;
 };

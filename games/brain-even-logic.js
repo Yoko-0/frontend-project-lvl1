@@ -1,8 +1,8 @@
 import game from '../src/index.js';
 import { randInt } from '../src/utils.js';
 
-const findRightAnswer = (number) => {
-  if (number % 2 === 0) {
+const findRightAnswer = (question) => {
+  if (Number(question) % 2 === 0) {
     return 'yes';
   }
   return 'no';
@@ -15,7 +15,8 @@ const generateQuestion = () => {
 };
 
 const play = () => {
-  const gameResult = game(generateQuestion, findRightAnswer);
+  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const gameResult = game(rules, generateQuestion, findRightAnswer);
 
   return gameResult;
 };

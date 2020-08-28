@@ -11,12 +11,12 @@ const gameWin = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-const game = (maxRounds = 3, getQuestion, findRightAnswer) => {
+const game = (rules, getQuestion, findRightAnswer, maxRounds = 3) => {
   const name = greet();
+  console.log(rules);
   for (let i = 0; i < maxRounds; i += 1) {
     const question = getQuestion();
     console.log(`Question: ${question}`);
-
     const userAnswer = readlineSync.question('Your answer: ');
     const correctAnswer = findRightAnswer(question);
 
